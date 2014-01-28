@@ -61,7 +61,7 @@ setopt autoresume completealiases correct
 unsetopt extendedglob correctall
 
 # Search path for the cd command
-cdpath=(. .. ~ ~/Documents/Projekte ~/Documents $cdpath)
+cdpath=(. .. ~ $cdpath)
 
 # Where to look for autoloaded function definitions
 fpath=($HOME/.zsh/functions $fpath)

@@ -1,5 +1,7 @@
 # vim: syntax=zsh
 
+cdpath=(~/Documents $cdpath)
+
 if [[ `whence -p ls` == /opt/local/bin/ls ]]
 then
 	eval `dircolors`
