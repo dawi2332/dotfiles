@@ -25,7 +25,7 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="awesomepanda"
 DEFAULT_USER=david
-ZSH_THEME="david"
+ZSH_THEME="dawi2332"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
