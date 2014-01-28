@@ -1,0 +1,6 @@
+if [[ -x /usr/games/fortune ]]
+then
+	/usr/games/fortune dragonfly-tips
+fi
+
+# vim:syntax=zsh

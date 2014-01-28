@@ -1,0 +1,10 @@
+# vim: syntax=zsh
+
+if [[ `whence -p ls` == /opt/local/bin/ls ]]
+then
+	eval `dircolors`
+	alias ls='ls --color=auto'
+else
+	export CLICOLOR=1
+	export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
+fi

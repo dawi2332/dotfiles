@@ -1,0 +1,7 @@
+# vim: syntax=zsh
+
+alias ldd='otool -L'
+alias top='top -ocpu'
+alias topx='top -ocpu -X'
+alias vim=mvim
+alias vi=vim

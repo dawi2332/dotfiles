@@ -1,0 +1,21 @@
+local startdir=`pwd`
+function dir2cbz ()
+{
+	if [[ $# -gt 0 ]]
+	then
+		for dir in $*
+		do
+			if [[ -d $dir ]]
+			then
+				dir=`echo $dir | sed -e 's/ $//'`
+				cd `dirname $dir`
+				dir=`basename $dir`
+				zip -9 -r "$dir.cbz" $dir/*
+				mv "$dir" ~/.Trash
+				cd $startdir
+			fi	
+		done
+	fi
+}
+
+# vim:syntax=zsh

@@ -1,0 +1,14 @@
+function convertpics ()
+{
+	list=`find "$1" -type d`
+	IFS="
+	"
+
+	for dir in $list
+	do
+		name=`ls "$dir" | head -1 | sed -e 's/^[0-9]* //' -e 's/.[a-zA-Z0-9]*$//'`
+		zip "$name.zip" $dir/*
+	done
+}
+
+# vim:syntax=sh
