@@ -1,3 +1,5 @@
 # vim: syntax=zsh
 
 cdpath=(~/Documents/Projekte $cdpath)
+
+DEFAULT_USER=david

@@ -1,4 +1,7 @@
-# Set some prompt and other stuff
+# Restore alias builtin
+unalias alias
+
+# A minimalistic zsh setup, just in case oh-my-zsh breaks.
 PROMPT='[%B%m%b] %~%# '
 RPROMPT=' %*'
 PROMPT2='%_> '
@@ -7,14 +10,10 @@ PROMPT4='+%N:%i> '
 MAILCHECK=60
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.zhistory
+HISTFILE=~/.zsh_history
 DIRSTACKSIZE=20
-#WATCHFMT='%n %a %l from %m at %T.'
+WATCHFMT='%n %a %l from %m at %T.'
 LOGCHECK=120
-HOSTNAME=`hostname`
-
-# Watch for my friends
-watch=(all)                     # watch for everybody but me
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -23,8 +22,6 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="awesomepanda"
-DEFAULT_USER=david
 ZSH_THEME="dawi2332"
 
 # Example aliases
@@ -34,8 +31,11 @@ ZSH_THEME="dawi2332"
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
+# Uncomment this to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -43,40 +43,51 @@ ZSH_THEME="dawi2332"
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment following line if you want to  shown in the command execution time stamp 
+# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+# yyyy-mm-dd
+HIST_STAMPS="dd.mm.yyyy"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github svn osx brew pip django autojump history-substring-search vi-mode kbd)
-unalias alias
+plugins=(git github svn osx brew pip django autojump screen history-substring-search vi-mode kbd)
+
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-typeset -U path
-path=($HOME/.bin /usr/local/share/npm/bin /usr/local/bin $path)
+# User configuration
 
-setopt autoresume completealiases correct
-unsetopt extendedglob correctall
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Search path for the cd command
-cdpath=(. .. ~ $cdpath)
+# # Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# Where to look for autoloaded function definitions
-fpath=($HOME/.zsh/functions $fpath)
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+zsh-startup rc aliases
 
 # Autoload all shell functions from all directories in $fpath (following
 # symlinks) that have the executable bit on (the executable bit is not
 # necessary, but gives you an easy way to stop the autoloading of a
 # particular shell function). $fpath should not be empty for this to work.
 for func in $^fpath/*(N-.x:t); autoload $func
-
-local prefix=${ZDOTDIR:-$HOME}/.zsh
-for file in rc aliases
-do
-	[ -r $prefix/common/$file ] && source $prefix/common/$file
-	[ -r $prefix/os/$OSTYPE/$file ] && source $prefix/os/$OSTYPE/$file
-	[ -r $prefix/host/$HOSTNAME/$file ] && source $prefix/host/$HOSTNAME/$file
-done
-unset $prefix

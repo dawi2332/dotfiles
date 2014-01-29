@@ -1,1 +1,15 @@
+# vim: syntax=zsh
+
+setopt autoresume completealiases correct
+unsetopt extendedglob correctall
+
+watch=(all)
+
+path=($HOME/.bin /usr/local/bin $path)
+fpath=($HOME/.zsh/functions $fpath)
+cdpath=(. .. ~ $cdpath)
+
+MANPATH=${MANPATH:-`manpath`}
+export MANPATH
+
 bindkey '^R' history-incremental-search-backward

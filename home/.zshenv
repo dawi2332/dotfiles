@@ -1,14 +1,19 @@
-export BLOCKSIZE="K"
-export EDITOR="vim"
-export VISUAL="vim"
-export PAGER="less"
-export LESSOPEN="|lesspipe.sh %s"
-export LESS="-R"
+zdotdir=${ZDOTDIR:-$HOME}
+export ZDOTDIR="$zdotdir"
 
-local prefix=${ZDOTDIR:-$HOME}/.zsh
-[ -r $prefix/common/env ] && source $prefix/common/env
-[ -r $prefix/os/$OSTYPE/env ] && source $prefix/os/$OSTYPE/env
-[ -r $prefix/host/$HOSTNAME/env ] && source $prefix/host/$HOSTNAME/env
-unset prefix
+HOSTNAME=${HOSTNAME:-`hostname`}
 
+zsh-startup() {
+	local prefix=$zdotdir/.zsh
+	for file in $@
+	do
+		[ -x $prefix/common/$file ] && source $prefix/common/$file
+		[ -x $prefix/os/$OSTYPE/$file ] && source $prefix/os/$OSTYPE/$file
+		[ -x $prefix/host/$HOSTNAME/$file ] && source $prefix/host/$HOSTNAME/$file
+	done
+}
+
+zsh-startup env
+
+# Prevent system-wide startup files from messing with our aliases
 alias alias=:

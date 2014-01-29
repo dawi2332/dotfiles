@@ -5,3 +5,4 @@ alias top='top -ocpu'
 alias topx='top -ocpu -X'
 alias vim=mvim
 alias vi=vim
+alias vimdiff='mvim -d'

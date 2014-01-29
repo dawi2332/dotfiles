@@ -10,3 +10,8 @@ else
 	export CLICOLOR=1
 	export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
 fi
+
+if [[ ! -n $SSH_CONNECTION ]]; then
+	export EDITOR='mvim'
+	export VISUAL='mvim'
+fi
