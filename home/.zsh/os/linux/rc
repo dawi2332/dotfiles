@@ -1,8 +1,8 @@
-# vim: syntax=zsh
-
 if [[ -a /etc/DIR_COLORS ]]
 then
-	eval `dircolors -b /etc/DIR_COLORS`
+    eval `dircolors -b /etc/DIR_COLORS`
 else
-	eval `dircolors`
+    eval `dircolors`
 fi
+
+# vim: ft=zsh ts=8 st=4 sts=4 et

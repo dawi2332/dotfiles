@@ -1,17 +1,18 @@
-# vim: syntax=zsh
-
 cdpath+="~/Documents"
 
-if [[ `whence -p ls` == /opt/local/bin/ls ]]
+if [[ `whence -p ls` == /bin/ls ]]
 then
-	eval `dircolors`
-	alias ls='ls --color=auto'
+    export CLICOLOR=1
+    export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
 else
-	export CLICOLOR=1
-	export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
+    eval `dircolors`
+    alias ls='ls --color=auto'
 fi
 
-if [[ ! -n $SSH_CONNECTION ]]; then
-	export EDITOR='mvim'
-	export VISUAL='mvim'
+if [[ ! -n $SSH_CONNECTION ]]
+then
+    export EDITOR='mvim'
+    export VISUAL='mvim'
 fi
+
+# vim: ft=zsh ts=8 st=4 sts=4 et

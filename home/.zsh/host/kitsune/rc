@@ -1,5 +1,5 @@
-# vim: syntax=zsh
-
 cdpath+="~/Documents/Projekte"
 
 DEFAULT_USER=david
+
+# vim: ft=zsh ts=8 st=4 sts=4 et

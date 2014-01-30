@@ -1,4 +1,3 @@
-# vim: syntax=zsh
 alias mv='nocorrect mv'       # no spelling correction on mv
 alias cp='nocorrect cp'       # no spelling correction on cp
 alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
@@ -12,3 +11,5 @@ alias -g T='|tail'
 alias -g L='|less'
 alias -g G='|grep'
 alias vi=vim
+
+# vim: ft=zsh ts=8 st=4 sts=4 et

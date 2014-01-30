@@ -1,6 +1,6 @@
 if [[ -x /usr/games/fortune ]]
 then
-	/usr/games/fortune dragonfly-tips
+    /usr/games/fortune dragonfly-tips
 fi
 
-# vim:syntax=zsh
+# vim: ft=zsh ts=8 st=4 sts=4 et

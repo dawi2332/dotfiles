@@ -1,5 +1,3 @@
-# vim: syntax=zsh
-
 alias ldd='otool -L'
 alias top='top -ocpu'
 alias topx='top -ocpu -X'
@@ -7,3 +5,5 @@ alias vim=mvim
 alias ex=mex
 alias view=mview
 alias rvim=rmvim
+
+# vim: ft=zsh ts=8 st=4 sts=4 et

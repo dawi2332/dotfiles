@@ -1,8 +1,8 @@
-# vim: syntax=zsh
-
 export BLOCKSIZE="K"
 export EDITOR="vim"
 export VISUAL="vim"
 export PAGER="less"
 export LESSOPEN="|lesspipe.sh %s"
 export LESS="-R"
+
+# vim: ft=zsh ts=8 st=4 sts=4 et

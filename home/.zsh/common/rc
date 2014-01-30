@@ -1,5 +1,3 @@
-# vim: syntax=zsh
-
 setopt autoresume completealiases correct
 unsetopt correctall
 
@@ -13,3 +11,5 @@ MANPATH=${MANPATH:-`manpath`}
 export MANPATH
 
 bindkey '^R' history-incremental-search-backward
+
+# vim: ft=zsh ts=8 st=4 sts=4 et
