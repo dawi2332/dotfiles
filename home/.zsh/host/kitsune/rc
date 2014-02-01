@@ -1,4 +1,4 @@
-cdpath+="~/Documents/Projekte"
+cdpath+=~/Documents/Projekte
 
 DEFAULT_USER=david
 
