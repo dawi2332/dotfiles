@@ -1,6 +1,0 @@
-[submodule "home/.oh-my-zsh"]
-	path = home/.oh-my-zsh
-	url = git://github.com/dawi2332/oh-my-zsh
-[submodule "vendor/oh-my-zsh"]
-	path = vendor/oh-my-zsh
-	url = git://github.com/dawi2332/oh-my-zsh.git
