@@ -1,5 +1,26 @@
-setopt autoresume completealiases correct
-unsetopt correctall
+setopt AUTO_CD \
+    AUTO_PUSHD \
+    CDABLE_VARS \
+    PUSHD_IGNORE_DUPS \
+    PUSHD_SILENT \
+    AUTO_LIST \
+    COMPLETE_ALIASES \
+    GLOB_DOTS \
+    HIST_ALLOW_CLOBBER \
+    HIST_IGNORE_ALL_DUPS \
+    HIST_IGNORE_DUPS \
+    INC_APPEND_HISTORY \
+    CLOBBER \
+    CORRECT \
+    INTERACTIVE_COMMENTS \
+    MAIL_WARNING \
+    RC_QUOTES \
+    AUTO_RESUME \
+    LONG_LIST_JOBS \
+    MULTIOS \
+    NO_CORRECT_ALL \
+    NO_BEEP \
+    NO_AUTO_MENU
 
 watch=(all)
 
