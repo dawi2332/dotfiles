@@ -2,6 +2,13 @@
 unalias alias
 
 # A minimalistic zsh setup, just in case oh-my-zsh breaks.
+unlimit
+limit stack 8192
+limit core 0
+limit -s
+
+umask 022
+
 PROMPT='[%B%m%b] %~%# '
 RPROMPT=' %*'
 PROMPT2='%_> '

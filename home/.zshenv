@@ -11,6 +11,7 @@ zsh-startup() {
         [ -x $prefix/os/$OSTYPE/$file ] && source $prefix/os/$OSTYPE/$file
         [ -x $prefix/host/$HOSTNAME/$file ] && source $prefix/host/$HOSTNAME/$file
     done
+    unset file
 }
 
 zsh-startup env
