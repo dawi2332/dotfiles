@@ -24,12 +24,11 @@ setopt AUTO_CD \
 
 watch=(all)
 
-path=($HOME/.bin /usr/local/bin $path)
-fpath=($HOME/.zsh/functions $fpath)
-cdpath=(. .. ~ $cdpath)
+typeset -gU fpath cdpath path manpath
 
-MANPATH=${MANPATH:-`manpath`}
-export MANPATH
+path=(~/.bin $path)
+fpath=($ZDOTDIR/.zsh/functions $fpath)
+cdpath=(. .. ~ $cdpath)
 
 bindkey '^R' history-incremental-search-backward
 
