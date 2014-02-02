@@ -7,9 +7,9 @@ zsh-startup() {
     local prefix=$zdotdir/.zsh
     for file in $@
     do
-        [ -x $prefix/common/$file ] && source $prefix/common/$file
-        [ -x $prefix/os/$OSTYPE/$file ] && source $prefix/os/$OSTYPE/$file
-        [ -x $prefix/host/$HOSTNAME/$file ] && source $prefix/host/$HOSTNAME/$file
+        [ -r $prefix/common/$file ] && source $prefix/common/$file
+        [ -r $prefix/os/$OSTYPE/$file ] && source $prefix/os/$OSTYPE/$file
+        [ -r $prefix/host/$HOSTNAME/$file ] && source $prefix/host/$HOSTNAME/$file
     done
     unset file
 }
