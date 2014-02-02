@@ -1,6 +1,6 @@
 # David Winter <dawi2332@gmail.com>
 
-zkbd_setup() {
+kbd_zkbd_setup() {
     echo "Failed to read your zkbd key settings from $1."
     if read -q \?"Would you like to set up zkbd for this terminal? (y/n) "
     then
@@ -16,25 +16,16 @@ zkbd_setup() {
     fi
 }
 
-zkbd_init() {
+kbd_zkbd_init() {
     local zkbd_keyfile=${ZDOTDIR}/.zkbd/$TERM-${${DISPLAY#${DISPLAY%:[0-9]*}}:-$VENDOR-$OSTYPE}
     if [[ ! -f $zkbd_keyfile ]]
     then
-        zkbd_setup $zkbd_keyfile
+        kbd_zkbd_setup $zkbd_keyfile
     fi
     source $zkbd_keyfile
-    unset $zkbd_keyfile
 }
 
-zle-line-init() {
-    echoti smkx
-}
-
-zle-line-finish() {
-    echoti rmkx
-}
-
-terminfo_init() {
+kbd_terminfo_init() {
     typeset -g -A key
     key[Backspace]=${terminfo[kbs]}
     key[Insert]=${terminfo[kich1]}
@@ -47,12 +38,9 @@ terminfo_init() {
     key[Down]=${terminfo[kcud1]}
     key[Left]=${terminfo[kcub1]}
     key[Right]=${terminfo[kcuf1]}
-
-    zle -N zle-line-init
-    zle -N zle-line-finish
 }
 
-default_keybindings() {
+kbd_defaults() {
     [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
     [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
     [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
@@ -66,28 +54,27 @@ default_keybindings() {
     [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 }
 
-bindkeys() {
-    bindings_file=${KBD_BINDINGS_FILE:-$ZDOTDIR/.zsh/kbd-bindings}
+kbd_bindkeys() {
+    local bindings_file=${KBD_BINDINGS_FILE:-$ZDOTDIR/.zsh/kbd-bindings}
     if [[ -r $bindings_file ]]
     then
         while read k b
         do
             [[ -n ${key[$k]} ]] && bindkey "${key[$k]}" $b
         done < $bindings_file
-        unset k b
     else
-        default_keybindings
+        kbd_defaults
     fi
 }
 
 case $KBD_CONFIG_METHOD in
     zkbd)
-        zkbd_init
+        kbd_zkbd_init
         ;;
     terminfo|*)
-        terminfo_init
+        kbd_terminfo_init
         ;;
 esac
 
-bindkeys
+kbd_bindkeys
 unset key
