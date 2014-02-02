@@ -1,5 +1,6 @@
 # kbd plugin for oh-my-zsh by David Winter <dawi2332@gmail.com>
 
+# Create zkbd configuration file using zkbd function.
 kbd_zkbd_setup() {
     echo "Failed to read your zkbd key settings from $1."
     if read -q \?"Would you like to set up zkbd for this terminal? (y/n) "
@@ -15,6 +16,7 @@ kbd_zkbd_setup() {
     fi
 }
 
+# Load key codes from zkbd configuration file.
 kbd_zkbd() {
     local zkbd_keyfile=${ZDOTDIR}/.zkbd/$TERM-${${DISPLAY#${DISPLAY%:[0-9]*}}:-$VENDOR-$OSTYPE}
     if [[ ! -f $zkbd_keyfile ]]
@@ -24,8 +26,9 @@ kbd_zkbd() {
     source $zkbd_keyfile
 }
 
-# Setup keys according to terminfo database.
+# Look up key codes in terminfo database.
 kbd_terminfo() {
+    zmodload zsh/terminfo
     typeset -g -A key
     key[F1]=${terminfo[kf1]}
     key[F2]=${terminfo[kf2]}
@@ -54,7 +57,7 @@ kbd_terminfo() {
     key[Menu]=
 
     # When the terminal has smkx and rmkx capabilities, set-up appropriate
-    # functions for ZLE to put the terminal into "application" mode.
+    # functions for ZLE to put the terminal into "application mode".
     if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} ))
     then
         function zle-line-init () {
@@ -84,7 +87,6 @@ kbd_defaults() {
 }
 
 kbd_bindkeys() {
-    kbd_defaults
     local bindings_file=${KBD_BINDINGS_FILE:-$ZDOTDIR/.zsh/kbd-bindings}
     if [[ -r $bindings_file ]]
     then
@@ -105,6 +107,7 @@ kbd_init() {
             ;;
     esac
 
+    kbd_defaults
     kbd_bindkeys
     unset key
 }

@@ -12,7 +12,7 @@ variable `$KBD_CONFIG_METHOD` to "zkbd" in your .zshrc file.
 
 The actual bindings from key (names) to ZLE functions are read from
 the file referenced by the variable `$KBD_BINDINGS_FILE`, each line
-containing the name of a key and a ZLE function separated by a
+containing the name of a key and a ZLE command separated by a
 space.
 
 ### Example:
