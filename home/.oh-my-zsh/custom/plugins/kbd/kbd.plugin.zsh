@@ -1,5 +1,7 @@
 # kbd plugin for oh-my-zsh by David Winter <dawi2332@gmail.com>
 
+kbd_plugin_dir=`dirname $0`
+
 # Create zkbd configuration file using zkbd function.
 kbd_zkbd_setup() {
     echo "Failed to read your zkbd key settings from $1."
@@ -73,27 +75,22 @@ kbd_terminfo() {
 
 # Default key bindings.
 kbd_defaults() {
-    [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
-    [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
-    [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
-    [[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
-    [[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
-    [[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
-    [[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
-    [[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
-    [[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
-    [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
-    [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+    kbd_load_file $kbd_plugin_dir/kbd-bindings.default
 }
 
 kbd_bindkeys() {
     local bindings_file=${KBD_BINDINGS_FILE:-$ZDOTDIR/.zsh/kbd-bindings}
-    if [[ -r $bindings_file ]]
+    kbd_load_file $bindings_file
+}
+
+kbd_load_file() {
+    local file=$1
+    if [[ -r $file ]]
     then
         while read k b
         do
             [[ -n ${key[$k]} ]] && bindkey "${key[$k]}" $b
-        done < $bindings_file
+        done < $file
     fi
 }
 

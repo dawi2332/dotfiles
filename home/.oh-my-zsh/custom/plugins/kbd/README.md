@@ -11,9 +11,13 @@ in the terminfo(5) database. This can be overriden by setting the
 variable `$KBD_CONFIG_METHOD` to "zkbd" in your .zshrc file.
 
 The actual bindings from key (names) to ZLE functions are read from
-the file referenced by the variable `$KBD_BINDINGS_FILE`, each line
-containing the name of a key and a ZLE command separated by a
-space.
+the file referenced by the variable `$KBD_BINDINGS_FILE`
+
+If no file is given, the defaults are read from the file `kbd-bindings.default`.
+
+### Syntax:
+
+One key binding per line containing the name of the key (as used by zkbd) and the ZLE function, seperated by a space.
 
 ### Example:
 
