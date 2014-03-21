@@ -91,7 +91,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-zsh-startup rc aliases
+zsh-startup rc
 
 # Autoload all shell functions from all directories in $fpath (following
 # symlinks) that have the executable bit on (the executable bit is not

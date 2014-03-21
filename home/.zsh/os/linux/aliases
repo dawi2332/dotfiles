@@ -1,3 +1,0 @@
-alias ls='ls --color=auto'
-
-# vim: ft=zsh ts=8 st=4 sts=4 et
