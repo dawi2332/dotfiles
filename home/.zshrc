@@ -69,7 +69,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github svn osx brew pip django autojump screen history-substring-search vi-mode kbd)
+plugins=(git github svn osx brew pip django autojump screen history-substring-search dirhistory vi-mode kbd)
 
 source $ZSH/oh-my-zsh.sh
 
