@@ -1,6 +1,9 @@
 cdpath+=~/Documents/Projekte
+path+=/usr/local/texlive/2014/bin/x86_64-darwin
 
 DEFAULT_USER=david
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # Set-up dirhistory key bindings for iTerm
 if [[ -n $dirhistory_past ]]
