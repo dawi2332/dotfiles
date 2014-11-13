@@ -1,15 +1,11 @@
-zdotdir=${ZDOTDIR:-$HOME}
-export ZDOTDIR="$zdotdir"
-
-HOSTNAME=${HOSTNAME:-`hostname`}
-
 zsh-startup() {
-    local prefix=$zdotdir/.zsh
+    local prefix=${ZDOTDIR:-$HOME}/.zsh
+    local hostname=${HOST/.*/}
     for file in $@
     do
         [ -r $prefix/common/$file ] && source $prefix/common/$file
         [ -r $prefix/os/$OSTYPE/$file ] && source $prefix/os/$OSTYPE/$file
-        [ -r $prefix/host/$HOSTNAME/$file ] && source $prefix/host/$HOSTNAME/$file
+        [ -r $prefix/host/$hostname/$file ] && source $prefix/host/$hostname/$file
     done
     unset file
 }
