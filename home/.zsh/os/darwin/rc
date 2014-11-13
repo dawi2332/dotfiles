@@ -1,13 +1,7 @@
 cdpath+=~/Documents
 
-if [[ `whence -p ls` == /bin/ls ]]
-then
-    export CLICOLOR=1
-    export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
-else
-    eval `dircolors`
-    alias ls='ls --color=auto'
-fi
+export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
+whence dircolors &>/dev/null 2>&1 && eval `dircolors`
 
 if [[ ! -n $SSH_CONNECTION ]]
 then
