@@ -1,9 +1,0 @@
-function getpics ()
-{
-	if [[ $# -eq 1 ]]
-	then
-		wget --cache=off --cookies=on --glob=off --tries=3 --proxy=off -x -r -p --level=7 --follow-ftp --quota=500m -A gif,jpeg,jpg,tiff,png,tif,pict $1
-	fi
-}
-
-# vim:syntax=sh
