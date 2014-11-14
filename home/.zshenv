@@ -1,5 +1,7 @@
+export ZDOTDIR=${ZDOTDIR:-$HOME}
+
 zsh-startup() {
-    local prefix=${ZDOTDIR:-$HOME}/.zsh
+    local prefix=$ZDOTDIR/.zsh
     local hostname=${HOST/.*/}
     for file in $@
     do
