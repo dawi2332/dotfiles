@@ -51,4 +51,4 @@ to make sure we haven't added extra keys that you weren't expecting.
 EOF
 }
 
-# vim:syntax=sh
+# vim: ft=zsh ts=8 st=4 sts=4 et

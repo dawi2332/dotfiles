@@ -13,9 +13,9 @@ function dir2cbz ()
 				zip -9 -r "$dir.cbz" $dir/*
 				mv "$dir" ~/.Trash
 				cd $startdir
-			fi	
+			fi
 		done
 	fi
 }
 
-# vim:syntax=zsh
+# vim: ft=zsh ts=8 st=4 sts=4 et

@@ -1,5 +1,3 @@
-# vim: syntax=zsh
-
 function fs-monitor ()
 {
 	me=`basename $0`
@@ -20,3 +18,5 @@ EOF
 		sleep $delay
 	done
 }
+
+# vim: ft=zsh ts=8 st=4 sts=4 et
