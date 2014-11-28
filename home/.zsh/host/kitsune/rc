@@ -3,6 +3,9 @@ path+=/usr/local/texlive/2014/bin/x86_64-darwin
 
 DEFAULT_USER=david
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Set-up dirhistory key bindings for iTerm2
 # maps to Alt+Right and Alt+Left
 if [[ -n $dirhistory_past ]]
