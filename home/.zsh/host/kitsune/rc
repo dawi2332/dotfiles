@@ -6,6 +6,8 @@ DEFAULT_USER=david
 GPG_TTY=$(tty)
 export GPG_TTY
 
+alias gpg=gpg2
+
 # Set-up dirhistory key bindings for iTerm2
 # maps to Alt+Right and Alt+Left
 if [[ -n $dirhistory_past ]]
