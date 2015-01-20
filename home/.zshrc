@@ -69,14 +69,14 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github svn osx brew pip django autojump screen sudo history-substring-search dirhistory vi-mode kbd)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(git github svn osx brew pip django autojump screen sudo history-substring-search dirhistory extract vi-mode kbd)
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
