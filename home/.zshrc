@@ -69,7 +69,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github svn osx brew pip django autojump screen sudo history-substring-search dirhistory extract vi-mode kbd)
+plugins=(git github golang brew autojump screen sudo history-substring-search dirhistory extract vi-mode kbd)
 
 # User configuration
 

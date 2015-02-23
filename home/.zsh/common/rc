@@ -26,7 +26,7 @@ watch=(all)
 
 typeset -gU fpath cdpath path manpath
 
-path=(~/.bin $path)
+path=(~/.bin $path $GOPATH/bin)
 fpath=($ZDOTDIR/.zsh/functions $fpath)
 cdpath=(. .. ~ $cdpath)
 
