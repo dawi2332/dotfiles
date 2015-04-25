@@ -6,6 +6,6 @@ zsh-startup rc
 # particular shell function). $fpath should not be empty for this to work.
 for func in $^fpath/*(N-.x:t); autoload $func
 
-for file in $ZDOTDIR/.zsh/env.d/*(N-.x:t); . $file
+for file in $ZDOTDIR/.zsh/env.d/*(N-.x:t); . $ZDOTDIR/.zsh/env.d/$file
 
 # vim: ft=zsh ts=8 st=4 sts=4 et
