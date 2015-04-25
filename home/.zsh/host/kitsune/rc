@@ -7,6 +7,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 alias gpg=gpg2
+alias gpgv=gpgv2
 
 # Set-up dirhistory key bindings for iTerm2
 # maps to Alt+Right and Alt+Left
