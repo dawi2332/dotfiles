@@ -1,6 +1,6 @@
 # kbd plugin for oh-my-zsh by David Winter <dawi2332@gmail.com>
 
-kbd_plugin_dir=`dirname $0`
+kbd_plugin_dir=$(dirname "$0")
 
 # Create zkbd configuration file using zkbd function.
 kbd_zkbd_setup() {

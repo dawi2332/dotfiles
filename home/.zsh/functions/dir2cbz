@@ -1,21 +1,23 @@
-local startdir=`pwd`
+local startdir
+startdir=$(pwd)
 function dir2cbz ()
 {
-	if [[ $# -gt 0 ]]
-	then
-		for dir in $*
-		do
-			if [[ -d $dir ]]
-			then
-				dir=`echo $dir | sed -e 's/ $//'`
-				cd `dirname $dir`
-				dir=`basename $dir`
-				zip -9 -r "$dir.cbz" $dir/*
-				mv "$dir" ~/.Trash
-				cd $startdir
-			fi
-		done
-	fi
+    if [[ $# -gt 0 ]]
+    then
+        for dir in $*
+        do
+            if [[ -d $dir ]]
+            then
+                dir=${dir/% /}
+                dirname=$(dirname "$dir")
+                cd "$dirname"
+                basename=$(basename "$dir")
+                zip -9 -r "$basename.cbz" "$basename"/* && \
+                    mv "$basename" ~/.Trash
+                cd "$startdir"
+            fi
+        done
+    fi
 }
 
 # vim: ft=zsh ts=8 st=4 sts=4 et

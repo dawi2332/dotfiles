@@ -1,7 +1,7 @@
 cdpath+=~/Documents
 
 export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
-whence dircolors &>/dev/null 2>&1 && eval `dircolors`
+whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
 
 if [[ ! -n $SSH_CONNECTION ]]
 then
