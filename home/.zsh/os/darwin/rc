@@ -5,8 +5,8 @@ whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
 
 if [[ ! -n $SSH_CONNECTION ]]
 then
-    export EDITOR='mvim'
-    export VISUAL='mvim'
+    export EDITOR='mvim -f -c "au VimLeave * maca hide:"'
+    export VISUAL='mvim -f -c "au VimLeave * maca hide:"'
     alias vim=mvim
     alias view=mview
     alias vimdiff=mvimdiff
