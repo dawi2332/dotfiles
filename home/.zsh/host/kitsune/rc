@@ -1,5 +1,5 @@
 cdpath+=~/Documents/Projekte
-path+=/usr/local/texlive/2014/bin/x86_64-darwin
+path+=(/usr/local/texlive/2014/bin/x86_64-darwin,/usr/local/opt/go/libexec/bin)
 
 DEFAULT_USER=david
 
