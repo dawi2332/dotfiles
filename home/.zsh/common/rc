@@ -45,5 +45,9 @@ alias -g T='|tail'
 alias -g L='|less'
 alias -g G='|grep'
 alias vi=vim
+alias tmux='tmux -CC attach || tmux -CC'
+alias flm='fleetctl list-machines'
+alias flu='fleetctl list-units'
+alias fluf='fleetctl list-unit-files'
 
 # vim: ft=zsh ts=8 st=4 sts=4 et
