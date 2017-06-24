@@ -5,8 +5,7 @@ kbd_plugin_dir=$(dirname "$0")
 # Create zkbd configuration file using zkbd function.
 kbd_zkbd_setup() {
     echo "Failed to read your zkbd key settings from $1."
-    if read -q \?"Would you like to set up zkbd for this terminal? (y/n) "
-    then
+    if read -q \?"Would you like to set up zkbd for this terminal? (y/n) "; then
         # zkbd assumes that $DISPLAY can be used safely as part of a
         # filename when initially recording the keybindings. That's not
         # always the case so we need to 'fix' it here if necessary.
@@ -21,8 +20,7 @@ kbd_zkbd_setup() {
 # Load key codes from zkbd configuration file.
 kbd_zkbd() {
     local zkbd_keyfile=${ZDOTDIR}/.zkbd/$TERM-${${DISPLAY#${DISPLAY%:[0-9]*}}:-$VENDOR-$OSTYPE}
-    if [[ ! -f $zkbd_keyfile ]]
-    then
+    if [[ ! -f $zkbd_keyfile ]]; then
         kbd_zkbd_setup $zkbd_keyfile
     fi
     source $zkbd_keyfile
@@ -60,8 +58,7 @@ kbd_terminfo() {
 
     # When the terminal has smkx and rmkx capabilities, set-up appropriate
     # functions for ZLE to put the terminal into "application mode".
-    if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} ))
-    then
+    if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
         function zle-line-init () {
             echoti smkx
         }
@@ -85,10 +82,8 @@ kbd_bindkeys() {
 
 kbd_load_file() {
     local file=$1
-    if [[ -r $file ]]
-    then
-        while read k b
-        do
+    if [[ -r $file ]]; then
+        while read k b; do
             [[ -n ${key[$k]} ]] && bindkey "${key[$k]}" $b
         done < $file
     fi
