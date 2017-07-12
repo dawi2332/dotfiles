@@ -1,3 +1,5 @@
+plugins=(git github autojump extract history-substring-search dirhistory vi-mode kbd thefuck)
+
 export BLOCKSIZE="K"
 export EDITOR="vim"
 export VISUAL="vim"
