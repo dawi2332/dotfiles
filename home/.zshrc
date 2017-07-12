@@ -75,7 +75,13 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git github golang brew autojump screen sudo extract docker fabric history-substring-search dirhistory vi-mode kbd)
+plugins=(git github autojump extract history-substring-search dirhistory vi-mode kbd thefuck)
+
+case $OSTYPE in
+    darwin*)
+        plugins+=(brew osx)
+        ;;
+esac
 
 source $ZSH/oh-my-zsh.sh
 
