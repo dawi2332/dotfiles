@@ -3,8 +3,7 @@ cdpath+=~/Documents
 export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
 whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
 
-if [[ ! -n $SSH_CONNECTION ]]
-then
+if [[ ! -n $SSH_CONNECTION ]]; then
     export EDITOR='mvim -f -c "au VimLeave * maca hide:"'
     export VISUAL='mvim -f -c "au VimLeave * maca hide:"'
     alias vim=mvim

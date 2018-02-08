@@ -1,5 +1,4 @@
-function boot2dockerinit ()
-{
+function boot2dockerinit () {
     local file=$ZDOTDIR/.zsh/env.d/boot2docker
     boot2docker shellinit > $file 2>/dev/null
     if [[ -f $file ]]

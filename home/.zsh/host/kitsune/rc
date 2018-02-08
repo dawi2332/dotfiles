@@ -6,15 +6,11 @@ DEFAULT_USER=david
 GPG_TTY=$(tty)
 export GPG_TTY
 
-alias gpg=gpg2
-alias gpgv=gpgv2
-
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 # Set-up dirhistory key bindings for iTerm2
 # maps to Alt+Right and Alt+Left
-if [[ -n $dirhistory_past ]]
-then
+if [[ -n $dirhistory_past ]]; then
     bindkey "\e[1;9C" dirhistory_zle_dirhistory_future
     bindkey "\e[1;9D" dirhistory_zle_dirhistory_back
 fi

@@ -1,8 +1,7 @@
-if [[ -a /etc/DIR_COLORS ]]
-then
-    eval `dircolors -b /etc/DIR_COLORS`
+if [[ -a /etc/DIR_COLORS ]]; then
+    eval $(dircolors -b /etc/DIR_COLORS)
 else
-    eval `dircolors`
+    eval $(dircolors)
 fi
 
 alias emerge-remove='sudo emerge --ask --depclean'
