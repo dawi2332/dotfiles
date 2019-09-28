@@ -14,4 +14,8 @@ fi
 alias ldd='otool -L'
 alias top='top -ocpu'
 
+export PATH="/usr/local/sbin:$PATH"
+
+export CGO_CFLAGS_ALLOW="-Xpreprocessor"
+
 # vim: ft=zsh ts=8 st=4 sts=4 et
