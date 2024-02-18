@@ -14,4 +14,4 @@ zsh-startup is a small function I wrote to put additional stuff into .zshenv, .z
 It will try to locate the given filename(s) in the directories common, os/$OSTYPE, host/$HOST below ~/.zsh and source them.
 
 ### Example:
-`zsh-startup rc` will first source ~/.zsh/common/rc, then ~/.zsh/os/$OSTYPE/rc and finally ~/.zsh/host/$HOST/rc. As the filename "rc" implies, those files contain my additions to .zshrc. Note that `zsh-startup rc` is no longer being called at the end of .zshrc but has been moved to ~/.oh-my-zsh/custom/startup.zsh, in order to reduce the amount of merging needed to keep my .zshrc in sync with oh-my-zsh's template. 
+`zsh-startup rc` will first source ~/.zsh/common/rc, then ~/.zsh/os/$OSTYPE/rc and finally ~/.zsh/host/$HOST/rc. As the filename "rc" implies, those files contain my additions to .zshrc.
