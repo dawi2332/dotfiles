@@ -3,13 +3,8 @@ cdpath+=~/Documents
 export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
 whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
 
-if [[ ! -n $SSH_CONNECTION ]]; then
-    export EDITOR='mvim -f -c "au VimLeave * maca hide:"'
-    export VISUAL='mvim -f -c "au VimLeave * maca hide:"'
-    alias vim=mvim
-    alias view=mview
-    alias vimdiff=mvimdiff
-fi
+alias vim=nvim
+alias vimdiff=nvim -d
 
 alias ldd='otool -L'
 alias top='top -ocpu'
@@ -18,4 +13,4 @@ export PATH="/usr/local/sbin:$PATH"
 
 export CGO_CFLAGS_ALLOW="-Xpreprocessor"
 
-# vim: ft=zsh ts=8 st=4 sts=4 et
+# vim: ft=zsh
