@@ -1,4 +1,4 @@
-cdpath+=~/Documents/Projekte
+cdpath+=(~/Documents/Projekte ~/Documents/Collections)
 path+=(/usr/local/texlive/2016/bin/x86_64-darwin /usr/local/opt/go/libexec/bin)
 
 DEFAULT_USER=david
@@ -15,4 +15,4 @@ if [[ -n $dirhistory_past ]]; then
     bindkey "\e[1;9D" dirhistory_zle_dirhistory_back
 fi
 
-# vim: ft=zsh ts=8 st=4 sts=4 et
+# vim: ft=zsh
