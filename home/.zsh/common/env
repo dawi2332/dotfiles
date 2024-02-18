@@ -7,4 +7,4 @@ export PAGER="less"
 export LESSOPEN="|lesspipe.sh %s"
 export LESS="-R"
 
-# vim: ft=zsh ts=8 st=4 sts=4 et
+# vim: ft=zsh ts=8 sts=4 et

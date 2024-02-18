@@ -15,4 +15,4 @@ if [[ -n $dirhistory_past ]]; then
     bindkey "\e[1;9D" dirhistory_zle_dirhistory_back
 fi
 
-# vim: ft=zsh
+# vim: ft=zsh ts=8 sts=4 et
