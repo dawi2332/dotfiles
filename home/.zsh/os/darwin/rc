@@ -1,0 +1,16 @@
+cdpath+=~/Documents
+
+export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
+whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
+
+alias vim=nvim
+alias vimdiff=nvim -d
+
+alias ldd='otool -L'
+alias top='top -ocpu'
+
+export PATH="/usr/local/sbin:$PATH"
+
+export CGO_CFLAGS_ALLOW="-Xpreprocessor"
+
+# vim: ft=zsh

@@ -1,0 +1,19 @@
+function fs-monitor () {
+        me=$(basename $0)
+
+        if [[ "$1" == -h ]] || [[ "$1" == --help ]] || [[ $# != 2 ]]; then
+                echo "Usage: $me [options] FILESYSTEM DELAY" >&2
+                return 1
+        fi
+
+        fs="$1"
+        delay="$2"
+
+        while true; do
+                echo -n "$(date)"
+                df . | grep $fs
+                sleep $delay
+        done
+}
+
+# vim: ft=zsh ts=8 sts=4 et

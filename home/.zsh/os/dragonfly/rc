@@ -1,0 +1,4 @@
+export CLICOLOR=1
+export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
+
+# vim: ft=zsh ts=8 sts=4 et

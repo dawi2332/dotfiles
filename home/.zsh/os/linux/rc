@@ -1,0 +1,10 @@
+if [[ -a /etc/DIR_COLORS ]]; then
+    eval $(dircolors -b /etc/DIR_COLORS)
+else
+    eval $(dircolors)
+fi
+
+alias emerge-remove='sudo emerge --ask --depclean'
+alias emerge-upgrade='sudo emerge --ask --update --newuse --deep --with-bdeps=y @world'
+
+# vim: ft=zsh ts=8 sts=4 et

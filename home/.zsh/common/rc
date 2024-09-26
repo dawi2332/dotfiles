@@ -1,0 +1,57 @@
+setopt AUTO_CD \
+    AUTO_PUSHD \
+    CDABLE_VARS \
+    PUSHD_IGNORE_DUPS \
+    PUSHD_SILENT \
+    AUTO_LIST \
+    COMPLETE_ALIASES \
+    GLOB_DOTS \
+    HIST_ALLOW_CLOBBER \
+    HIST_IGNORE_ALL_DUPS \
+    HIST_IGNORE_DUPS \
+    INC_APPEND_HISTORY \
+    CLOBBER \
+    CORRECT \
+    INTERACTIVE_COMMENTS \
+    MAIL_WARNING \
+    RC_QUOTES \
+    AUTO_RESUME \
+    LONG_LIST_JOBS \
+    MULTIOS \
+    NO_CORRECT_ALL \
+    NO_BEEP \
+    NO_AUTO_MENU
+
+watch=(all)
+
+typeset -gU fpath cdpath path manpath
+
+path=(~/.bin $path $GOPATH/bin)
+fpath=($ZDOTDIR/.zsh/functions $fpath)
+cdpath=(. .. ~ $cdpath)
+
+bindkey '^R' history-incremental-search-backward
+
+alias mv='nocorrect mv'       # no spelling correction on mv
+alias cp='nocorrect cp'       # no spelling correction on cp
+alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
+alias bc='bc -l'
+alias la='nocorrect ls -la'
+alias l='nocorrect ls -lh'
+alias lf='nocorrect ls -lf'
+alias -g M='|more'
+alias -g H='|head'
+alias -g T='|tail'
+alias -g L='|less'
+alias -g G='|grep'
+alias vi=vim
+alias tmux='tmux -CC attach || tmux -CC'
+alias flm='fleetctl list-machines'
+alias flu='fleetctl list-units'
+alias fluf='fleetctl list-unit-files'
+
+if [ `whence python3` ]; then
+    path+=`python3 -m site --user-base`/bin
+fi
+
+# vim: ft=zsh ts=8 sts=4 et

@@ -1,0 +1,11 @@
+Backspace backward-delete-char
+Insert overwrite-mode
+Home beginning-of-line
+PageUp up-line-or-history
+Delete delete-char
+End end-of-line
+PageDown down-line-or-history
+Up history-substring-search-up
+Left backward-char
+Down history-substring-search-down
+Right forward-char

@@ -1,0 +1,5 @@
+if [[ -x /usr/games/fortune ]]; then
+    /usr/games/fortune dragonfly-tips
+fi
+
+# vim: ft=zsh ts=8 sts=4 et

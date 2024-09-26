@@ -1,0 +1,10 @@
+function boot2dockerinit () {
+    local file=$ZDOTDIR/.zsh/env.d/boot2docker
+    boot2docker shellinit > $file 2>/dev/null
+    if [[ -f $file ]]
+    then
+        chmod +x $file
+    fi
+}
+
+# vim: ft=zsh ts=8 sts=4 et

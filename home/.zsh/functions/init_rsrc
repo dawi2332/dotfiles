@@ -1,0 +1,20 @@
+function init_rsrc() {
+	if [[ $# != 1 ]]; then
+		echo "usage: $0 [file ...]"
+		return
+	fi
+
+	for f in "$@"; do
+		SECONDS=$(stat -f "%Dm" "$f")
+		DATESTRING=$(date -r $SECONDS "+%Y-%m-%d %H:%M:%S.")
+		DATE=$(echo $DATESTRING | cut -d" " -f1 | sed -e 's/-//g')
+		HOUR=$(echo $DATESTRING | cut -d" " -f2 | cut -d":" -f1)
+		MIN=$(echo $DATESTRING | cut -d"." -f1 | cut -d":" -f2)
+		SEC=$(echo $DATESTRING | cut -d"." -f1 | cut -d":" -f3)
+		cat /dev/null > "$f"/..namedfork/rsrc
+		touch -m -t $DATE$HOUR$MIN.$SEC "$f"
+		touch -a "$f"
+	done
+}
+
+# vim: ft=zsh ts=8 sts=4 et

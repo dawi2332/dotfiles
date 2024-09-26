@@ -1,0 +1,5 @@
+plugins+=(virtualenv rbenv)
+
+export GOPATH=$HOME/code/go
+
+# vim: ft=zsh ts=8 sts=4 et

@@ -1,0 +1,29 @@
+function svn2git() {
+    if [[ $# -lt 2 ]]; then
+        echo "Not enough parameters" >&2
+        return
+    fi
+    local src=$1
+    local dest=$2
+    shift 2
+    local args="$*"
+
+    echo src=$src
+    echo dest=$dest
+    echo args=$args
+
+    svn log -q $src | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2">"}' | sort -u >> ~/.authors.txt
+    $EDITOR ~/.authors.txt
+    if read -q \?"Started editor to modify ~/.authors.txt, enter 'y' to continue "; then
+        git svn clone --authors-file=$HOME/.authors.txt --no-metadata $src $args $dest
+        [[ $? -eq 0 ]] || return
+        cd $dest
+        git svn create-ignore
+        cp -Rf .git/refs/remotes/origin/tags/* .git/refs/tags/ 2>&1 >/dev/null
+        rm -Rf .git/refs/remotes/origin/tags 2>&1 >/dev/null
+        cp -Rf .git/refs/remotes/* .git/refs/heads/ 2>&1 >/dev/null
+        rm -Rf .git/refs/remotes 2>&1 >/dev/null
+    fi
+}
+
+# vim: ft=zsh ts=8 sts=4 et
