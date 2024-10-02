@@ -15,6 +15,12 @@ decorations = "Buttonless"
 opacity=0.8
 blur = true
 
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
 [font]
 # normal.family = "MesloLGS Nerd Font Mono"
 normal.family = "JetBrainsMonoNL Nerd Font"
