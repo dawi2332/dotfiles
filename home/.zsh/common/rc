@@ -50,8 +50,10 @@ alias flm='fleetctl list-machines'
 alias flu='fleetctl list-units'
 alias fluf='fleetctl list-unit-files'
 
-if [ `whence python3` ]; then
-    path+=`python3 -m site --user-base`/bin
+if [ $(whence python3) ]; then
+    path+=$(python3 -m site --user-base)/bin
 fi
+
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 # vim: ft=zsh ts=8 sts=4 et
