@@ -4,3 +4,6 @@
 [submodule "home/.config/alacritty/themes"]
 	path = home/.config/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
+[submodule "home/.zsh/tools/fzf-git.sh"]
+	path = home/.zsh/tools/fzf-git.sh
+	url = https://github.com/junegunn/fzf-git.sh.git
