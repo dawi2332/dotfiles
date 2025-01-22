@@ -1,5 +1,4 @@
 cdpath+=(~/Documents/Projekte ~/Documents/Collections)
-path+=(/usr/local/texlive/2016/bin/x86_64-darwin /usr/local/opt/go/libexec/bin)
 
 # shellcheck disable=SC2034
 DEFAULT_USER=david

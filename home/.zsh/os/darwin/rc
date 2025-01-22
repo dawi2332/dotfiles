@@ -9,8 +9,6 @@ alias vimdiff=nvim -d
 alias ldd='otool -L'
 alias top='top -ocpu'
 
-export PATH="/usr/local/sbin:$PATH"
-
 # Set-up dirhistory key bindings for iTerm2
 # maps to Alt+Right and Alt+Left
 if [[ -n $dirhistory_past ]]; then
