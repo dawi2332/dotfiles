@@ -1,3 +1,4 @@
+# vim:ft=sh
 export GOPATH=$HOME/code/go
 
-# vim: ft=zsh ts=8 sts=4 et
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters

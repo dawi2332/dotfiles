@@ -1,8 +1,8 @@
 # vim: ft=sh
-plugins+=(brew macos virtualenv pyenv rbenv eza)
+plugins+=(brew macos eza asdf git-commit)
 
 # Set options for omz plugin eza
-zstyle ':omz:plugins:eza' 'hyperlink' yes
+zstyle ':omz:plugins:eza' 'hyperlink' no
 zstyle ':omz:plugins:eza' 'icons' yes
 
 export EDITOR=nvim

@@ -1,5 +1,7 @@
+# vim:ft=sh
 cdpath+=~/Documents
 
+export MANPATH=${MANPATH:-$(manpath)}
 export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
 whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
 
@@ -60,5 +62,10 @@ _fzf_comprun() {
   esac
 }
 
+function fh() {
+  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
 export BAT_THEME="OneHalfDark"
-# vim: ft=zsh
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
