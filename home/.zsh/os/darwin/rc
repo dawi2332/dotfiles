@@ -75,4 +75,4 @@ function fh() {
 
 export BAT_THEME="OneHalfDark"
 
-eval "$(oh-my-posh init zsh --config ${XDG_CONFIG_HOME:-~/.config}/ohmyposh/tokyonight_storm.omp.yaml)"
+eval "$(oh-my-posh init zsh --config ${XDG_CONFIG_HOME:-$HOME/.config}/ohmyposh/tokyonight_storm.omp.yaml)"
