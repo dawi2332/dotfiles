@@ -1,5 +1,9 @@
 # vim:ft=sh
-plugins+=rust
+plugins+=(rust zsh-syntax-highlighting)
+
 export GOPATH=$HOME/code/go
+export CGO_CFLAGS_ALLOW="-Xpreprocessor"
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+
+. "$HOME/.cargo/env"

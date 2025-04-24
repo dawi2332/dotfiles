@@ -1,3 +1,4 @@
+# vim:ft=zsh
 setopt AUTO_CD \
     AUTO_PUSHD \
     CDABLE_VARS \
@@ -26,9 +27,9 @@ watch=(all)
 
 typeset -gU fpath cdpath path manpath
 
-path=(~/bin $GOPATH/bin $path)
+path=($HOME/bin ${GOPATH:+$GOPATH/bin} $path)
 fpath=($ZDOTDIR/.zsh/functions $fpath)
-cdpath=(. .. ~ $cdpath)
+cdpath=(. .. $HOME $cdpath)
 
 bindkey '^R' history-incremental-search-backward
 
@@ -46,11 +47,8 @@ alias -g L='|less'
 alias -g G='|grep'
 alias vi=vim
 alias tmux='tmux -CC attach || tmux -CC'
-alias flm='fleetctl list-machines'
-alias flu='fleetctl list-units'
-alias fluf='fleetctl list-unit-files'
 
-if [ $(whence python3) ]; then
+if (($+commands[python3])); then
     path+=$(python3 -m site --user-base)/bin
 fi
 

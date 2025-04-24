@@ -3,10 +3,6 @@ cdpath+=(~/Documents/Projekte ~/Documents/Collections)
 
 DEFAULT_USER=david
 
-export GPG_TTY=$(tty)
-
-export CGO_CFLAGS_ALLOW="-Xpreprocessor"
+export GPG_TTY=$TTY
 
 export LANG="de_DE.UTF-8"
-
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

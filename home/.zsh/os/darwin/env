@@ -1,9 +1,5 @@
 # vim: ft=sh
-plugins+=(brew macos eza mise git-commit)
-
-# Set options for omz plugin eza
-zstyle ':omz:plugins:eza' 'hyperlink' no
-zstyle ':omz:plugins:eza' 'icons' yes
+plugins+=(macos eza mise git-commit)
 
 export EDITOR=nvim
 export VISUAL=nvim
@@ -13,3 +9,6 @@ if [[ "$CPUTYPE" -eq "arm64" ]]; then
 else
     HOMEBREW_PREFIX=/usr/local
 fi
+
+eval "$(/usr/libexec/path_helper -s)"
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"

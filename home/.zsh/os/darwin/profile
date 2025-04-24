@@ -1,5 +1,0 @@
-# vim: ft=sh
-
-eval "$(/usr/libexec/path_helper -s)"
-
-export JAVA_HOME=$(/usr/libexec/java_home 2>/dev/null)
