@@ -3,10 +3,13 @@ cdpath+=~/Documents
 
 export MANPATH=${MANPATH:-$(manpath)}
 export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
-whence dircolors &>/dev/null 2>&1 && eval "$(dircolors)"
+if (($+commands[dircolors])); then
+  eval "$(dircolors)"
+fi
 
 alias vim=nvim
 alias vimdiff=nvim -d
+alias cat=bat
 
 alias ldd='otool -L'
 alias top='top -ocpu'
@@ -67,5 +70,3 @@ function fh() {
 }
 
 export BAT_THEME="OneHalfDark"
-
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"

@@ -1,5 +1,5 @@
 # vim: ft=sh
-plugins+=(brew macos eza asdf git-commit)
+plugins+=(brew macos eza mise git-commit)
 
 # Set options for omz plugin eza
 zstyle ':omz:plugins:eza' 'hyperlink' no

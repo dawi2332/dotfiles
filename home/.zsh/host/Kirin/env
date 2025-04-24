@@ -1,4 +1,5 @@
 # vim:ft=sh
+plugins+=rust
 export GOPATH=$HOME/code/go
 
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
