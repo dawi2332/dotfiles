@@ -1,4 +1,28 @@
-unsetopt GLOBAL_RCS
+# vim:ft=sh
+setopt AUTO_CD \
+    AUTO_LIST \
+    AUTO_PUSHD \
+    AUTO_RESUME \
+    CDABLE_VARS \
+    CLOBBER \
+    COMPLETE_ALIASES \
+    CORRECT \
+    GLOB_DOTS \
+    HIST_ALLOW_CLOBBER \
+    HIST_IGNORE_ALL_DUPS \
+    HIST_IGNORE_DUPS \
+    INC_APPEND_HISTORY \
+    INTERACTIVE_COMMENTS \
+    LONG_LIST_JOBS \
+    MAIL_WARNING \
+    MULTIOS \
+    NO_AUTO_MENU \
+    NO_BEEP \
+    NO_CORRECT_ALL \
+    NO_GLOBAL_RCS \
+    PUSHD_IGNORE_DUPS \
+    PUSHD_SILENT \
+    RC_QUOTES
 
 plugins=(git github autojump extract history-substring-search dirhistory vi-mode kbd)
 
@@ -8,5 +32,3 @@ export VISUAL="vim"
 export PAGER="less"
 export LESSOPEN="|lesspipe.sh %s"
 export LESS="-R"
-
-# vim: ft=zsh ts=8 sts=4 et

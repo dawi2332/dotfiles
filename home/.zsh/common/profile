@@ -1,0 +1,7 @@
+# vim:ft=sh
+typeset -gU fpath cdpath path manpath
+
+path=($HOME/bin ${GOPATH:+$GOPATH/bin} $path)
+fpath=($ZDOTDIR/.zsh/functions $fpath)
+cdpath=(. .. $HOME $cdpath)
+

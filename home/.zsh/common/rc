@@ -1,35 +1,5 @@
-# vim:ft=zsh
-setopt AUTO_CD \
-    AUTO_PUSHD \
-    CDABLE_VARS \
-    PUSHD_IGNORE_DUPS \
-    PUSHD_SILENT \
-    AUTO_LIST \
-    COMPLETE_ALIASES \
-    GLOB_DOTS \
-    HIST_ALLOW_CLOBBER \
-    HIST_IGNORE_ALL_DUPS \
-    HIST_IGNORE_DUPS \
-    INC_APPEND_HISTORY \
-    CLOBBER \
-    CORRECT \
-    INTERACTIVE_COMMENTS \
-    MAIL_WARNING \
-    RC_QUOTES \
-    AUTO_RESUME \
-    LONG_LIST_JOBS \
-    MULTIOS \
-    NO_CORRECT_ALL \
-    NO_BEEP \
-    NO_AUTO_MENU
-
+# vim:ft=sh
 watch=(all)
-
-typeset -gU fpath cdpath path manpath
-
-path=($HOME/bin ${GOPATH:+$GOPATH/bin} $path)
-fpath=($ZDOTDIR/.zsh/functions $fpath)
-cdpath=(. .. $HOME $cdpath)
 
 bindkey '^R' history-incremental-search-backward
 
@@ -48,10 +18,4 @@ alias -g G='|grep'
 alias vi=vim
 alias tmux='tmux -CC attach || tmux -CC'
 
-if (($+commands[python3])); then
-    path+=$(python3 -m site --user-base)/bin
-fi
-
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
-
-# vim: ft=zsh ts=8 sts=4 et
