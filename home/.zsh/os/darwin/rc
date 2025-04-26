@@ -1,11 +1,14 @@
 # vim:ft=sh
 cdpath+=~/Documents
 
-export MANPATH=${MANPATH:-$(manpath)}
 export LSCOLORS="exfxcxdxbxgxdxBxGxCxDx"
-if (($+commands[dircolors])); then
+if [[ -n ${commands[dircolors]} ]]; then
   eval "$(dircolors)"
 fi
+
+# Set options for omz plugin eza
+zstyle ':omz:plugins:eza' 'hyperlink' no
+zstyle ':omz:plugins:eza' 'icons' yes
 
 alias vim=nvim
 alias vimdiff=nvim -d
@@ -43,11 +46,7 @@ _fzf_compgen_dir() {
 
 shift
 # shellcheck disable=SC1090
-source ~/.zsh/tools/fzf-git.sh/fzf-git.sh
-
-# Set options for omz plugin eza
-zstyle ':omz:plugins:eza' 'hyperlink' no
-zstyle ':omz:plugins:eza' 'icons' yes
+source $ZDOTDIR/.zsh/tools/fzf-git.sh/fzf-git.sh
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 

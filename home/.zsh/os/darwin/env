@@ -1,14 +1,27 @@
 # vim: ft=sh
+
+function clean_path() {
+    integer i
+    for (( i=1; $i <= ${#path}; i+=1)); do
+        if [[ ! -d "${path[$i]}" ]]; then
+            path[$i]=()
+        fi
+    done
+}
+
 plugins+=(macos eza mise git-commit)
 
 export EDITOR=nvim
 export VISUAL=nvim
+
+if [[ -o noglobalrcs ]]; then
+    eval "$(/usr/libexec/path_helper -s)"
+    clean_path
+fi
 
 if [[ "$CPUTYPE" -eq "arm64" ]]; then
     HOMEBREW_PREFIX=/opt/homebrew
 else
     HOMEBREW_PREFIX=/usr/local
 fi
-
-eval "$(/usr/libexec/path_helper -s)"
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
